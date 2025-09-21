@@ -1,1 +1,387 @@
 /* Your SCSS here. */
+// main.scss - SCSS for MP1 Avengers page
+// Use variables and mixins (required)
+
+$primary: #0b3d91; // avengers-y deep blue
+$accent: #ff6f61;
+$text: #111;
+$muted: #666;
+$max-width: 1100px;
+
+@mixin center-flex($dir: column) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  color: $text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.stripe {
+  width: 100%;
+  padding: 60px 20px;
+  display: block;
+}
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+// NAVBAR
+#navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 50;
+  transition: all 300ms ease;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 6px purple;
+  .nav-inner {
+    @include center-flex(row);
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 14px 20px;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+  .brand {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    color: purple;
+    font-weight: 700;
+  }
+  .brand svg {
+    border-radius: 6px;
+    background: transparent;
+    color: #fff;
+    padding: 2px;
+  }
+  .brand-text {
+    font-size: 1.2rem;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  .nav-links a {
+    display: block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 200ms;
+    color: #0b3d91;
+  }
+  .nav-links a.active {
+    background: linear-gradient(90deg, $primary, darken($primary, 10%));
+    color: white;
+  }
+  .socials {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: purple;
+  }
+  .icon {
+    opacity: 0.85;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+  }
+}
+
+/* Large and small navbar states (resizing) */
+#navbar.nav-large {
+  padding: 10px 0;
+  .brand-text {
+    font-size: 1.25rem;
+  }
+  .nav-inner {
+    padding: 18px 20px;
+  }
+}
+#navbar.nav-small {
+  padding: 6px 0;
+  background: rgba(255, 255, 255, 0.98);
+  .brand-text {
+    font-size: 1rem;
+  }
+  .nav-inner {
+    padding: 8px 20px;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Hero */
+.hero {
+  min-height: calc(100vh - 80px);
+  padding-top: 120px; // leave space for navbar
+  color: #fff;
+  position: relative;
+
+  background-image: url(../assets/hero_content.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  .vcenter {
+    @include center-flex(column);
+    min-height: 50vh;
+    gap: 12px;
+  }
+  .title {
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: -1px;
+    animation: slideDown 700ms ease both;
+  }
+  .subtitle {
+    margin: 0 0 12px 0;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+  }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .btn {
+    background: $accent;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+  }
+  .btn.outline {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    color: #fff;
+  }
+}
+
+/* accent stripes */
+.accent {
+  background: linear-gradient(180deg, #fff 0%, #f8f9fb 100%);
+}
+.footer {
+  background: #0b1220;
+  color: #dfe9ff;
+  padding: 24px 20px;
+}
+
+// Cards
+.cards {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.card {
+  width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(10, 10, 10, 0.08);
+  transition: transform 240ms;
+  &:hover {
+    transform: translateY(-6px);
+  }
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  h3 {
+    margin: 12px 16px 0;
+  }
+  p {
+    margin: 0 16px 16px;
+    color: $muted;
+  }
+}
+
+// Carousel styles
+.carousel {
+  position: relative;
+  max-width: 1000px;
+  margin: 12px auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.slides {
+  display: flex;
+  transition: transform 500ms ease;
+  width: 100%;
+}
+.slide {
+  min-width: 100%;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+.slide img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+.carousel-arrow.prev {
+  left: 12px;
+}
+.carousel-arrow.next {
+  right: 12px;
+}
+
+// Multi-column
+.multi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.multi p {
+  margin-top: 0;
+  text-align: left;
+}
+
+// Contact layout
+// Social circles
+.social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  justify-content: center;
+}
+.social-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: $primary;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+// Modal
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  padding: 20px;
+}
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+.modal-dialog {
+  background: #fff;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+.modal-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+// small tweaks and animation
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// responsive
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+  } // simpler mobile view (could be extended)
+  #navbar .brand-text {
+    font-size: 1rem;
+  }
+  .hero .title {
+    font-size: 2.2rem;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .carousel {
+    height: auto;
+  }
+}
+
+// footer small
+.footer p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: rgba(223, 233, 255, 0.9);
+}

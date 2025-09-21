@@ -20,7 +20,6 @@
     "postcss": "^8.3.6",
     "postcss-loader": "^7.3.4",
     "prettier": "^2.3.2",
-    "sass": "^1.38.2",
     "sass-loader": "^14.2.1",
     "style-loader": "^3.3.4",
     "webpack": "^5.101.3",

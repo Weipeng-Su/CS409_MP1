@@ -1,13 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Avengers — One Page</title>
+    <link rel="stylesheet" href="./css/main.scss" />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header id="top" class="stripe hero">
+      <nav id="navbar" class="nav-large">
+        <div class="nav-inner">
+          <a class="brand" href="#top">
+            <!-- simple svg mark -->
+            <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden>
+              <circle cx="12" cy="12" r="10" />
+              <text
+                x="12"
+                y="16"
+                text-anchor="middle"
+                font-size="10"
+                fill="#fff"
+              >
+                A
+              </text>
+            </svg>
+            <span class="brand-text">Avengers</span>
+          </a>
+
+          <ul id="nav-links" class="nav-links">
+            <li><a href="#about" data-target="about">About</a></li>
+            <li><a href="#heroes" data-target="heroes">Heroes</a></li>
+            <li><a href="#carousel" data-target="carousel">Gallery</a></li>
+            <li><a href="#multicol" data-target="multicol">Stories</a></li>
+            <li><a href="#media" data-target="media">Media</a></li>
+            <li><a href="#contact" data-target="contact">Contact</a></li>
+          </ul>
+
+          <div class="socials">
+            <!-- inline SVG social icons -->
+            <a class="social-circle" href="#" aria-label="Facebook">
+              <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a class="social-circle" href="#" aria-label="YouTube">
+              <i class="fab fa-youtube fa-2x"></i>
+            </a>
+            <a class="social-circle" href="#" aria-label="Instagram">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a class="social-circle" href="#" aria-label="Twitter">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hero-content vcenter">
+        <h1 class="title">Earth's Mightiest Heroes</h1>
+        <p class="subtitle">
+          A fan page celebrating the Avengers — animations, gallery, and media
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#heroes">Meet the Team</a>
+          <button id="open-modal" class="btn outline">More Info</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- About stripe -->
+    <section id="about" class="stripe about accent">
+      <div class="container center">
+        <h2>About</h2>
+        <p>
+          Founded in response to extraordinary threats, the Avengers bring
+          together the world’s most talented heroes. From super-soldiers and
+          geniuses to gods and mutants, their mission is simple: safeguard the
+          planet, inspire hope, and prove that teamwork can overcome even the
+          greatest challenges.
+        </p>
+      </div>
+    </section>
+
+    <!-- Heroes stripe: multi-column cards -->
+    <section id="heroes" class="stripe heroes">
+      <div class="container center">
+        <h2>Heroes</h2>
+        <div class="cards">
+          <article class="card">
+            <img src="./assets/ironman.jpg" alt="Iron Man" />
+            <h3>Tony Stark</h3>
+            <p>Genius inventor and philanthropist in armor.</p>
+          </article>
+          <article class="card">
+            <img src="./assets/captain.jpg" alt="Captain America" />
+            <h3>Steve Rogers</h3>
+            <p>Sentinel of liberty with an unbreakable shield.</p>
+          </article>
+          <article class="card">
+            <img src="./assets/thor.webp" alt="Thor" />
+            <h3>Thor Odinson</h3>
+            <p>God of Thunder from Asgard.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel -->
+    <section id="carousel" class="stripe gallery">
+      <div class="container center">
+        <h2>Gallery</h2>
+        <div class="carousel" aria-roledescription="carousel">
+          <button class="carousel-arrow prev" aria-label="Previous slide">
+            &#10094;
+          </button>
+          <div class="slides">
+            <div class="slide"><img src="./assets/gallery_1.jpg" alt="" /></div>
+            <div class="slide">
+              <img src="./assets/gallery_2.webp" alt="" />
+            </div>
+            <div class="slide">
+              <img src="./assets/gallery_3.webp" alt="" />
+            </div>
+          </div>
+          <button class="carousel-arrow next" aria-label="Next slide">
+            &#10095;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multi-column layout -->
+    <section id="multicol" class="stripe stories">
+      <div class="container center">
+        <h2>Stories</h2>
+        <div class="multi">
+          <p>
+            Spider-Man swung through New York, chasing a mysterious thief. When
+            the villain revealed a portal to another dimension, Peter teamed up
+            with Doctor Strange to stop chaos spilling into the city, saving
+            lives—and reality itself.
+          </p>
+          <p>
+            Black Panther discovered a secret Vibranium shipment being stolen.
+            Racing through Wakanda’s forests, T’Challa confronted the
+            mercenaries, reclaiming the metal and uncovering a hidden enemy
+            planning to destabilize the nation from within.
+          </p>
+          <p>
+            Iron Man faced rogue AI threatening Stark Industries. With quick
+            improvisation, Tony built an emergency suit, infiltrated the
+            facility, and outsmarted the AI, proving human ingenuity still
+            triumphs over cold logic.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Media stripe -->
+    <section id="media" class="stripe">
+      <div class="overlay">
+        <div class="container center">
+          <h2>Media</h2>
+          <video id="demoVideo" controls width="720" preload="metadata">
+            <source src="./assets/marvel_10s.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / modal demonstration -->
+    <section id="contact" class="stripe contact accent">
+      <div class="container center">
+        <h2>Contact</h2>
+        <div class="contact-info">
+          <p>Follow our channels</p>
+          <div class="social-row">
+            <a class="social-circle" href="#" aria-label="Facebook">
+              <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a class="social-circle" href="#" aria-label="YouTube">
+              <i class="fab fa-youtube fa-2x"></i>
+            </a>
+            <a class="social-circle" href="#" aria-label="Instagram">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a class="social-circle" href="#" aria-label="Twitter">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="stripe footer">
+      <div class="container center">
+        <p>&copy; <span id="year"></span> Avengers Fanpage - MP1</p>
+        <p>Made with SCSS, JS, and ❤️</p>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div
+        class="modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h3 id="modal-title">Avengers — More Info</h3>
+        <p>
+          The Avengers are Earth’s mightiest heroes, united to protect humanity
+          from threats too powerful for any one hero to handle alone. Combining
+          courage, skill, and cutting-edge technology, they face global dangers,
+          alien invasions, and supervillains, defending justice wherever it’s
+          needed.
+        </p>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>
